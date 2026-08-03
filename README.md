@@ -136,4 +136,4 @@ BSD 3-Clause. See [`LICENSE`](LICENSE).
 
 ## Acknowledgments
 
-Multi-DWPC and its reference implementation are the work of Lucas A. Gillenwater, with James C. Costello and Casey S. Greene. This package builds directly on that framework and on the XSwap permutation method of Himmelstein et al. Supported by NIH R01 HD109765.
+Multi-DWPC and its reference implementation are the work of Lucas A. Gillenwater, with James C. Costello and Casey S. Greene. 
