@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hetnetex-md"
+version = "0.1.0"
+description = "Exact and asymptotic inference for Multi-DWPC on heterogeneous knowledge graphs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "BSD-3-Clause" }
+authors = [{ name = "Tusharkanti Ghosh", email = "tusharkanti.ghosh@cuanschutz.edu" }]
+keywords = ["hetnet", "knowledge-graph", "DWPC", "Hetionet", "permutation-test"]
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "numpy>=1.24,<3",
+  "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+benchmarks = ["pandas>=2.0", "matplotlib>=3.7", "statsmodels>=0.14"]
+dev = ["pytest>=7.0", "pytest-cov"]
+
+[project.urls]
+Homepage = "https://github.com/tusharkantighosh/hetnetex-md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

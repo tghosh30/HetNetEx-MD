@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "HetNetEX-MD: exact and asymptotic inference for Multi-DWPC"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Ghosh
+    given-names: Tusharkanti
+    affiliation: "Department of Biostatistics and Informatics, Colorado School of Public Health, University of Colorado Anschutz Medical Campus"
+version: 0.1.0
+license: BSD-3-Clause
