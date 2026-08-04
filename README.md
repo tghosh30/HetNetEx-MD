@@ -22,7 +22,7 @@ It computes the *same* null hypothesis by a different route. It is not a differe
 ## Install
 
 ```bash
-git clone https://github.com/<owner>/hetnetex-md.git
+git clone https://github.com/tghosh30/hetnetex-md.git
 cd hetnetex-md
 pip install -e ".[dev]"
 pytest -q          # 31 tests, ~1 s
