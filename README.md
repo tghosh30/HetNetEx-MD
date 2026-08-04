@@ -22,8 +22,8 @@ It computes the *same* null hypothesis by a different route. It is not a differe
 ## Install
 
 ```bash
-git clone https://github.com/tghosh30/HetNetEX-MD.git
-cd HetNetEX-MD
+git clone https://github.com/<owner>/hetnetex-md.git
+cd hetnetex-md
 pip install -e ".[dev]"
 pytest -q          # 31 tests, ~1 s
 ```
@@ -53,17 +53,25 @@ A complete runnable version, including a side-by-side comparison against `B=1000
 
 ---
 
-## What the functions correspond to
+## Documentation
+
+| | |
+|---|---|
+| **[Theory notes](docs/theory.md)** | All 15 lemmas, theorems and propositions, with proofs, mapped to the functions that implement them |
+| **[Results and figures](docs/results.md)** | Every benchmark table and all seven figures, including the refuted hypotheses |
+| **[Vignettes](vignettes/README.md)** | Four runnable walkthroughs; every number in them is real script output |
+
+### What the functions correspond to
 
 | Function | Implements | Status |
 |---|---|---|
-| `exact_resampling_moments` | Lemma 1 / Theorem 2 — stratified SRSWOR moments | **exact** (identity) |
-| `edgeworth_upper_tail` | Theorem 4 — Edgeworth-corrected tail | asymptotic, `O(K⁻¹)` |
-| `exact_median_pvalue` | Theorem 5b — hypergeometric convolution | **exact**, distribution-free |
-| `network_null_moments` | Lemma 3, Theorems 6–7 — configuration-model moments | asymptotic, `O(1/n)` |
-| `fit_soft_cm` / `soft_cm_ratio` | Lemma 4b — max-entropy edge probability | asymptotic |
-| `correction_factors` | Lemma 4 — mean-field simple-graph correction | superseded by `fit_soft_cm` |
-| `admissible_self_kernels` | admissibility rule for same-source kernels | exact rule |
+| `exact_resampling_moments` | [Lemma 1 / Theorem 2](docs/theory.md#lemma-1--theorem-2) — stratified SRSWOR moments | **exact (identity)** |
+| `edgeworth_upper_tail` | [Theorem 4](docs/theory.md#theorem-4) — Edgeworth-corrected tail | asymptotic, `O(K⁻¹)` |
+| `exact_median_pvalue` | [Theorem 5b](docs/theory.md#theorem-5b) — hypergeometric convolution | **exact, distribution-free** |
+| `network_null_moments` | [Lemma 3, Theorems 6–7](docs/theory.md#lemma-3) — configuration-model moments | asymptotic, `O(1/n)` |
+| `fit_soft_cm` / `soft_cm_ratio` | [Lemma 4b](docs/theory.md#lemma-4b) — max-entropy edge probability | asymptotic |
+| `correction_factors` | [Lemma 4](docs/theory.md#lemma-4) — mean-field simple-graph correction | superseded by `fit_soft_cm` |
+| `admissible_self_kernels` | [admissibility rule](docs/theory.md#admissibility) for same-source kernels | **exact rule** |
 
 The distinction in the last column is load-bearing. **The N1 results are identities**: `exact_resampling_moments` and `exact_median_pvalue` return what infinite resampling would converge to, and the test suite verifies this against exhaustive enumeration of every subset. **The N2 results are approximations** whose error is measured and reported, not assumed.
 
@@ -117,11 +125,16 @@ If a spread diagnostic is wanted, report the exact null skewness `null_skew` ins
 ## Repository layout
 
 ```
-src/hetnetex_md/     core.py          the method; every public function
-tests/               test_exactness.py  exhaustive-enumeration verification
-benchmarks/          synthetic_hetnet.py  network builder, XSwap, DWPC
-                     run_benchmarks.py    reproduces the paper's tables/figures
-examples/            quickstart.py
+src/hetnetex_md/   core.py               the method; every public function
+docs/              theory.md             lemmas, theorems, proofs
+                   results.md            benchmark tables and figures
+                   figures/*.png         seven figures
+vignettes/         01..04-*.md           write-ups (numbers are real output)
+                   v01..v04_*.py         the scripts that produce them
+tests/             test_exactness.py     exhaustive-enumeration verification
+benchmarks/        synthetic_hetnet.py   network builder, XSwap, DWPC
+                   run_benchmarks.py     reproduces the paper's tables/figures
+examples/          quickstart.py
 ```
 
 ---
@@ -136,4 +149,4 @@ BSD 3-Clause. See [`LICENSE`](LICENSE).
 
 ## Acknowledgments
 
-Multi-DWPC and its reference implementation are the work of Lucas A. Gillenwater, with James C. Costello and Casey S. Greene. 
+Multi-DWPC and its reference implementation are the work of Lucas A. Gillenwater, with James C. Costello and Casey S. Greene. This package builds directly on that framework and on the XSwap permutation method of Himmelstein et al. Supported by NIH R01 HD109765.
