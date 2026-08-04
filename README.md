@@ -19,6 +19,35 @@ It computes the *same* null hypothesis by a different route. It is not a differe
 
 ---
 
+## Related work
+
+HetNetEX-MD extends [HetNetEX](https://github.com/tghosh30/HetNetEx), which
+introduces analytical null DWPC inference for hetnets via the configuration
+model. This repository extends that framework to the Multi-DWPC setting,
+replacing both resampling null models with closed-form calculations.
+
+## Citation
+
+If you use this software, please cite the HetNetEX preprint:
+
+> Ghosh T, Gillenwater LA, Greene CS, Costello JC.
+> HetNetEX: Exact Asymptotic Inference in Heterogeneous Biomedical Knowledge Graphs.
+> *bioRxiv* 2026.07.05.736581. doi:10.64898/2026.07.05.736581
+
+```bibtex
+@article{ghosh2026hetnetex,
+  author  = {Ghosh, Tusharkanti and Gillenwater, Lucas A. and
+             Greene, Casey S. and Costello, James C.},
+  title   = {HetNetEX: Exact Asymptotic Inference in Heterogeneous
+             Biomedical Knowledge Graphs},
+  journal = {bioRxiv},
+  year    = {2026},
+  doi     = {10.64898/2026.07.05.736581},
+  url     = {https://www.biorxiv.org/content/10.64898/2026.07.05.736581v1}
+}
+```
+---
+
 ## Install
 
 ```bash
